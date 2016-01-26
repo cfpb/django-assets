@@ -53,10 +53,12 @@ $(document).ready(function (){
     $("#header nav a").mouseenter(function() {
         window.clearTimeout(hidemenu);
         var target = $(this).attr("href");
-        if (($(target).css("display") == "none") || (target == "/")) {
+        if ((target == "/") || ($(target).css("display") == "none")) {
             hideMenu();
             linkElement = this;
-            dropdown = window.setTimeout(dropMenu, 500);
+            if (target != '/') {
+              dropdown = window.setTimeout(dropMenu, 500);
+            }
         }
         else {
 
